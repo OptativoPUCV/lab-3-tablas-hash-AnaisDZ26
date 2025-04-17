@@ -51,6 +51,7 @@ void insertMap(HashMap * map, char * key, void * value) {
                 map->buckets[i] = array;
         }
     }
+    map->size+=1;
 }
 
 void enlarge(HashMap * map) {
