@@ -55,7 +55,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         return;
     }
     for (long i = 1 ; i < map->capacity ; i++){
-        long k = hash(pos + 1, map->capacity); 
+        long k = (pos + 1) % map->capacity; 
         if (map->buckets[k] == NULL || map->buckets[k]->key == NULL){
             map->buckets[k] = array;
             map->size++;
