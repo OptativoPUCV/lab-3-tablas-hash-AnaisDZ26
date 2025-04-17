@@ -54,17 +54,18 @@ void insertMap(HashMap * map, char * key, void * value) {
         map->current = pos;
         return;
     }
-    for (long i = pos + 1 ; i < map->capacity ; i++){
-        if (map->buckets[i] == NULL || map->buckets[i]->key == NULL){
-            map->buckets[i] = array;
+    for (long i = 1 ; i < map->capacity ; i++){
+        long k = hash(pos + 1, map->capacity); 
+        if (map->buckets[k] == NULL || map->buckets[k]->key == NULL){
+            map->buckets[k] = array;
             map->size++;
-            map->current = i;
+            map->current = k;
             return;
         }
-        if (strcmp(map->buckets[i]->key, key) == 0){
-            map->buckets[i]->value = value;
+        if (strcmp(map->buckets[k]->key, key) == 0){
+            map->buckets[k]->value = value;
             free(array);
-            map->current = i;
+            map->current = k;
             return;
         }
     }
