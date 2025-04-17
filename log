@@ -176,3 +176,18 @@ Thu, Apr 17, 2025  6:56:37 PM:
  tests:  4|5
 total_score: 20/70
 bb75771
+Thu, Apr 17, 2025  7:18:14 PM: 
+ hashmap.c | 20 ++++++++++++++++----
+ 1 file changed, 16 insertions(+), 4 deletions(-)
+Compilation failed
+In file included from test.c:4:0:
+hashmap.c: In function 'insertMap':
+hashmap.c:45:57: error: '*map->buckets' is a pointer; did you mean to use '->'?
+     if (map->buckets[pos] == NULL && strcmp(map->buckets->key, key) != 0){
+                                                         ^~
+                                                         ->
+hashmap.c:60:42: error: 'vlaue' undeclared (first use in this function)
+                 map->buckets[i]->value = vlaue;
+                                          ^~~~~
+hashmap.c:60:42: note: each undeclared identifier is reported only once for each function it appears in
+8dfd2d4
