@@ -42,28 +42,33 @@ int is_equal(void* key1, void* key2){
 void insertMap(HashMap * map, char * key, void * value) {
     long pos = hash(key, map->capacity);
     Pair *array = createPair(key, value);
-    if (map->buckets[pos] == NULL && strcmp(map->buckets[pos]->key, key) != 0){
+    if (map->buckets[pos] == NULL || map->buckets[pos]->key == NULL){
         map->buckets[pos] = array;
         map->size++;
         map->current = pos;
         return;
     }
-    else {
-        for(long i = pos+1 ; i < map->capacity ; i++){
-            if (map->buckets[i] == NULL || map->buckets[i]->key == NULL){
-                map->buckets[i] = array;
-                map->size++;
-                map->current = i;
-                return;
-            }
-            if (strcmp(map->buckets[i]->key, key) == 0){
-                map->buckets[i]->value = value;
-                free(array);
-                map->current = i;
-                return;
-            }
+    if (strcmp(map->buckets[pos]->key, key) == 0){
+        map->buckets[pos]->value = value;
+        free(array);
+        map->current = pos;
+        return;
+    }
+    for (long i = pos + 1 ; i < map->capacity ; i++){
+        if (map->buckets[i] == NULL || map->buckets[i]->key == NULL){
+            map->buckets[i] = array;
+            map->size++;
+            map->current = i;
+            return;
+        }
+        if (strcmp(map->buckets[i]->key, key) == 0){
+            map->buckets[i]->value = value;
+            free(array);
+            map->current = i;
+            return;
         }
     }
+    free(array);
 }
 
 void enlarge(HashMap * map) {
