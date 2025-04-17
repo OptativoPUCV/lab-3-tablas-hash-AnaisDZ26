@@ -191,3 +191,14 @@ hashmap.c:60:42: error: 'vlaue' undeclared (first use in this function)
                                           ^~~~~
 hashmap.c:60:42: note: each undeclared identifier is reported only once for each function it appears in
 8dfd2d4
+Thu, Apr 17, 2025  7:18:31 PM: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:0:
+hashmap.c: In function 'insertMap':
+hashmap.c:45:57: error: '*map->buckets' is a pointer; did you mean to use '->'?
+     if (map->buckets[pos] == NULL && strcmp(map->buckets->key, key) != 0){
+                                                         ^~
+                                                         ->
+0e8d06a

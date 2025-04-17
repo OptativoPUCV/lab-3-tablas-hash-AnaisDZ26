@@ -57,7 +57,7 @@ void insertMap(HashMap * map, char * key, void * value) {
                 return;
             }
             if (strcmp(map->buckets[i]->key, key) == 0){
-                map->buckets[i]->value = vlaue;
+                map->buckets[i]->value = value;
                 free(array);
                 map->current = i;
                 return;
