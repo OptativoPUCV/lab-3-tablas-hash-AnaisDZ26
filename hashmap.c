@@ -116,14 +116,19 @@ Pair * searchMap(HashMap * map,  char * key) {
 Pair * firstMap(HashMap * map) {
     for (long i = 0 ; i < map->capacity ; i++){ // Recorrer en caso de que el primero es null
         if (map->buckets[i] != NULL){   // Hasta un dato valido
-            map->current = i;
-            return map->buckets[i]; // Retorna el datoo valido y termina el bucle
+            map->current = i; // Current actualizado
+            return map->buckets[i]; // Retorna el dato valido y termina el bucle
         }
     }
     return NULL;
 }
 
 Pair * nextMap(HashMap * map) {
-
+    for (long i = current + 1 ; i < map->capacity ; i++){ // "i" inicializa despues de current ya que queremos el next
+        if (map->buckets[i] != NULL){ // En caso de que le siguente dato sea null
+            map->current = i; // Current actualizado
+            return map->buckets[i]; // Retorna el dato valido y termina el bucle
+        }
+    }
     return NULL;
 }

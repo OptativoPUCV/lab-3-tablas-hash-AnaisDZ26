@@ -294,3 +294,14 @@ Thu, Apr 17, 2025  8:57:47 PM:
  tests:  12|2
 total_score: 50/70
 56a42a8
+Thu, Apr 17, 2025  9:01:11 PM: 
+ hashmap.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+Compilation failed
+In file included from test.c:4:0:
+hashmap.c: In function 'nextMap':
+hashmap.c:127:19: error: 'current' undeclared (first use in this function)
+     for (long i = current + 1 ; i < map->capacity ; i++){ // "i" inicializa despues de current ya que queremos el next
+                   ^~~~~~~
+hashmap.c:127:19: note: each undeclared identifier is reported only once for each function it appears in
+8a764b8
