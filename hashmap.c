@@ -101,11 +101,8 @@ void eraseMap(HashMap * map,  char * key) {
 Pair * searchMap(HashMap * map,  char * key) {   
     Pair *array = createPair(key, NULL);
     long pos = hash(key, map->capacity);
-    if (strcmp(map->buckets[pos]->key, key) == 0){
-        array->value = map->buckets[pos]->value;
-        map->current = pos;
-    }
-    for (long i = 1 ; i < map->capacity ; i++){
+    
+    for (long i = 0 ; i < map->capacity ; i++){
         long k = (pos + i) % map->capacity;
         if (map->buckets[k] == NULL) return NULL; 
         if (strcmp(map->buckets[k]->key, key) == 0){
