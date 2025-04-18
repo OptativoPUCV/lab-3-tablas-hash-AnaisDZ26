@@ -282,3 +282,9 @@ hashmap.c:100:17: error: '*map->buckets' is a pointer; did you mean to use '->'?
                  ->
 cc1.exe: all warnings being treated as errors
 10ef4ee
+Thu, Apr 17, 2025  8:48:39 PM: 
+ hashmap.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+ tests:  11|2
+total_score: 50/70
+bf37bdd
