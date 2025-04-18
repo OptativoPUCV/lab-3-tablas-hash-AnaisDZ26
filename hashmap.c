@@ -105,7 +105,7 @@ Pair * searchMap(HashMap * map,  char * key) {
     for (long i = 0 ; i < map->capacity ; i++){
         long k = (pos + i) % map->capacity;
         if (map->buckets[k] == NULL) return NULL; 
-        if (strcmp(map->buckets[k]->key, key) == 0){
+        if (map->buckets[k]->key != NULL && strcmp(map->buckets[k]->key, key) == 0){
             array->value = map->buckets[k]->value;
             map->current = k;
         }
