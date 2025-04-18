@@ -369,3 +369,9 @@ hashmap.c:80:8: error: 'HashMap {aka struct HashMap}' has no member named 'array
      map->array = (Pair **)calloc(map->capacity, sizeof(Pair*));
         ^~
 97a560a
+Thu, Apr 17, 2025  9:13:01 PM: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  17|0
+total_score: 70/70
+d6f33b2
