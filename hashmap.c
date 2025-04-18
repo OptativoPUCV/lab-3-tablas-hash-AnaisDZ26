@@ -124,7 +124,7 @@ Pair * firstMap(HashMap * map) {
 }
 
 Pair * nextMap(HashMap * map) {
-    for (long i = current + 1 ; i < map->capacity ; i++){ // "i" inicializa despues de current ya que queremos el next
+    for (long i = map->current + 1 ; i < map->capacity ; i++){ // "i" inicializa despues de current ya que queremos el next
         if (map->buckets[i] != NULL){ // En caso de que le siguente dato sea null
             map->current = i; // Current actualizado
             return map->buckets[i]; // Retorna el dato valido y termina el bucle
