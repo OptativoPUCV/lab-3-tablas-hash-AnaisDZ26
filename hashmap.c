@@ -77,7 +77,7 @@ void enlarge(HashMap * map) {
     Pair **old_array = map->array;
     long old_capacity = map->capacity;
     map->capacity*=2;
-    map->array = (Pair **)realloc(map->capacity*sizeof(Pair*));
+    map->array = (Pair **)calloc(map->capacity, sizeof(Pair*));
     map->size = 0;
     for (int i = 0 ; i < old_capacity ; i++){
         if (old_array[i] != NULL){

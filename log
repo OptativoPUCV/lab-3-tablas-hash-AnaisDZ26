@@ -346,3 +346,16 @@ c:\mingw\include\stdlib.h:486:40: note: declared here
                                         ^~~~~~~
 cc1.exe: all warnings being treated as errors
 a8d98fc
+Thu, Apr 17, 2025  9:11:31 PM: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:0:
+hashmap.c: In function 'enlarge':
+hashmap.c:77:27: error: 'HashMap {aka struct HashMap}' has no member named 'array'
+     Pair **old_array = map->array;
+                           ^~
+hashmap.c:80:8: error: 'HashMap {aka struct HashMap}' has no member named 'array'
+     map->array = (Pair **)calloc(map->capacity, sizeof(Pair*));
+        ^~
+dbbb552
