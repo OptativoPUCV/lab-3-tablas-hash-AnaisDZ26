@@ -74,7 +74,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
-    Pair **old_array = map->array;
+    Pair **old_array = map->buckets;
     long old_capacity = map->capacity;
     map->capacity*=2;
     map->array = (Pair **)calloc(map->capacity, sizeof(Pair*));
